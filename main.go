@@ -6,7 +6,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"sql"
 	"sync/atomic"
 
 	"github.com/dudemous17/chirpy/internal/database"
