@@ -49,6 +49,7 @@ func main() {
 	fileserver := http.FileServer(http.Dir(fileroot))
 	mux.Handle("GET /app/", apiCfg.middlewareMetricsInc(http.StripPrefix("/app", fileserver)))
 	mux.HandleFunc("GET /api/healthz", handleReadiness)
+	mux.HandleFunc("POST /api/login", apiCfg.handleLogin)
 	mux.HandleFunc("POST /api/users", apiCfg.handleUsersCreate)
 	mux.HandleFunc("POST /api/chirps", apiCfg.handleChirpsCreate)
 	mux.HandleFunc("GET /api/chirps", apiCfg.handleChirpsGet)
